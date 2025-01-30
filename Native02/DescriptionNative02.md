@@ -1,11 +1,10 @@
 
 # Description du cours
 
-Ce cours vous permettra d'apprendre les méthodes 
-collaboratives de développement d'applications mobiles 
-natives exploitant des données distantes
+Ce cours vous permettra d'apprendre les méthodes collaboratives de développement d'applications mobiles natives exploitant des données distantes
 
 ## Objectif intégrateur
+
 Réaliser toutes les étapes du cycle de développement d'applications natives orientées données.
 Visées éducatives du cours
 • Développer l’autonomie et favoriser la polyvalence;
