@@ -1,131 +1,196 @@
-
-# Fiche de Révision : Les Bases de Kotlin
+# Fiche de Révision : Les Bases de Kotlin Simplifiées
 
 ## 1. Introduction à Kotlin
-- **Kotlin** est un langage de programmation statiquement typé qui fonctionne sur la JVM (Java Virtual Machine).
-- Il est conçu pour être entièrement interopérable avec Java.
 
-## 2. Syntaxe de base
-### Déclaration de variables
+- Langage moderne et simple à apprendre
+- Compatible avec Java
+- Sécurisé contre les erreurs de null
+- Utilisé principalement pour le développement Android
+
+## 2. Les Variables
+
+### Types de Variables
+
 ```kotlin
-// Variable mutable
-var mutVariable: String = "modifiable"
+// Variable qu'on peut modifier
+var age = 25
+age = 26 // OK
 
-// Variable immuable
-val immutVariable: String = "non modifiable"
+// Variable qu'on ne peut pas modifier
+val nom = "Pierre"
+// nom = "Paul" // Erreur!
+
+// Variables avec type explicite
+var compteur: Int = 0
+var message: String = "Bonjour"
+var actif: Boolean = true
+var prix: Double = 19.99
 ```
 
-### Types de base
-- **Numbers** : `Int`, `Long`, `Float`, `Double`
-- **Boolean** : `true` ou `false`
-- **Characters** : `Char`
-- **Strings** : `String`
+### Null Safety
 
-### Boucles et conditions
 ```kotlin
-// Condition
-if (condition) {
-    // code
+// Variable qui peut être null
+var texte: String? = "Hello"
+texte = null // OK
+
+// Variable qui ne peut pas être null
+var nom: String = "Pierre"
+// nom = null // Erreur!
+```
+
+## 3. Structures de Base
+
+### Les Conditions
+
+```kotlin
+// If simple
+var age = 18
+if (age >= 18) {
+    println("Majeur")
 } else {
-    // code
+    println("Mineur")
 }
 
-// When (équivalent de switch)
-when (variable) {
-    1 -> print("Un")
-    2 -> print("Deux")
-    else -> print("Autre")
+// When (remplace switch)
+var note = 15
+when (note) {
+    20 -> println("Parfait!")
+    in 16..19 -> println("Très bien!")
+    in 10..15 -> println("Passable")
+    else -> println("À améliorer")
 }
+```
 
-// Boucle for
+### Les Boucles
+
+```kotlin
+
 for (i in 1..5) {
-    println(i)
+    println(i)  // Affiche 1, 2, 3, 4, 5
 }
 
 // Boucle while
-var i = 1
-while (i <= 5) {
-    println(i)
-    i++
+var compteur = 0
+while (compteur < 3) {
+    println("Tour $compteur")
+    compteur++
 }
 ```
 
-## 3. Fonctions
-### Définir une fonction
+## 4. Les Fonctions
+
+### Fonctions
+
 ```kotlin
-fun addition(a: Int, b: Int): Int {
+// Fonction basique
+fun direBonjour() {
+    println("Bonjour!")
+}
+
+// Fonction avec paramètres
+fun saluer(nom: String) {
+    println("Bonjour $nom!")
+}
+
+// Fonction qui retourne une valeur
+fun additionner(a: Int, b: Int): Int {
     return a + b
 }
 
-// Fonction à expression unique
-fun soustraction(a: Int, b: Int) = a - b
+// Fonction en une ligne
+fun multiplier(x: Int, y: Int) = x * y
 ```
 
-### Fonctions avec paramètres par défaut
+## 5. Les Collections
+
+### Listes
+
 ```kotlin
-fun saluer(nom: String = "Utilisateur") {
-    println("Bonjour, $nom!")
+// Liste non modifiable
+val fruits = listOf("pomme", "banane", "orange")
+println(fruits[0]) // pomme
+
+// Liste modifiable
+val nombres = mutableListOf(1, 2, 3)
+nombres.add(4)
+nombres.remove(1)
+```
+
+### Tableaux
+
+```kotlin
+// Tableau simple
+val notes = arrayOf(15, 17, 12, 19)
+for (note in notes) {
+    println(note)
 }
 ```
 
-## 4. Classes et Objets
-### Déclaration d'une classe
+## 6. Les Classes
+
+### Classe Simple
+
 ```kotlin
+// Définition d'une classe
 class Personne(val nom: String, var age: Int) {
-    fun afficherInfo() {
-        println("Nom: $nom, Age: $age")
+    fun sePresenter() {
+        println("Je m'appelle $nom et j'ai $age ans")
     }
 }
 
-// Instanciation d'un objet
-val personne = Personne("Alice", 30)
-personne.afficherInfo()
+// Utilisation de la classe
+val pierre = Personne("Pierre", 25)
+pierre.sePresenter()
+pierre.age = 26 // On peut modifier l'âge
 ```
 
-## 5. Collections
-### Listes
+## 7. Les String Templates
+
+### Utilisation Simple
+
 ```kotlin
-val nombres = listOf(1, 2, 3, 4)
-val nombresMutable = mutableListOf(1, 2, 3, 4)
+val prenom = "Marie"
+val age = 30
+
+// Template simple
+println("Je m'appelle $prenom")
+
+// Template avec expression
+println("L'année prochaine, j'aurai ${age + 1} ans")
 ```
 
-### Maps
+## 8. Manipulation des Chaînes
+
 ```kotlin
-val map = mapOf("clé1" to "valeur1", "clé2" to "valeur2")
-val mapMutable = mutableMapOf("clé1" to "valeur1", "clé2" to "valeur2")
-```
-
-### Boucles sur Collections
-```kotlin
-for (num in nombres) {
-    println(num)
-}
-
-for ((clé, valeur) in map) {
-    println("$clé -> $valeur")
-}
-```
-
-## 6. Null Safety
-### Gestion des valeurs nulles
-```kotlin
-var nom: String? = "Kotlin"
-nom = null // Ceci est permis car nom est nullable
-
-// Utilisation de l'opérateur safe call
-val longueur = nom?.length
-
-// Utilisation de l'opérateur Elvis
-val longueur2 = nom?.length ?: 0
-```
-
-## 7. Extensions
-### Fonctions d'extension
-```kotlin
-fun String.espacer(): String {
-    return this.replace("", " ").trim()
-}
-
 val texte = "Kotlin"
-println(texte.espacer()) // K o t l i n
-``
+
+// Opérations de base
+println(texte.length) // 6
+println(texte.uppercase()) // KOTLIN
+println(texte.lowercase()) // kotlin
+
+// Concatenation
+val nom = "Pierre"
+val message = "Bonjour " + nom
+val messageTemplate = "Bonjour $nom"
+```
+
+## 9. Exercices Pratiques
+
+```kotlin
+// Exercice 1: Calculer la moyenne
+fun calculerMoyenne(notes: List<Int>): Double {
+    return notes.sum().toDouble() / notes.size
+}
+
+// Exercice 2: Vérifier si un nombre est pair
+fun estPair(nombre: Int): Boolean {
+    return nombre % 2 == 0
+}
+
+// Utilisation
+val notes = listOf(15, 12, 18, 10)
+println("Moyenne: ${calculerMoyenne(notes)}")
+println("Est pair: ${estPair(4)}")
+```
