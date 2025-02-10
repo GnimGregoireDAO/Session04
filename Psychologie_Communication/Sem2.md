@@ -1,5 +1,3 @@
-# /Psychologie_Communication/Fiche_Revision_Valeurs.md
-
 # Les Valeurs (Semaine 2)
 
 ## Définition
@@ -9,12 +7,14 @@
 - Influencent nos attitudes et notre vision du monde
 
 ## Caractéristiques principales
-- Sont relativement stables dans le temps 
+
+- Sont relativement stables dans le temps
 - Hiérarchisées selon leur importance
 - Acquises par la socialisation et l'expérience
 - Peuvent évoluer avec le contexte
 
 ## Types de valeurs selon Schwartz
+
 1. **Universalisme** : Protection, compréhension, tolérance
 2. **Bienveillance** : Préservation du bien-être des proches
 3. **Tradition** : Respect des coutumes
@@ -27,12 +27,14 @@
 10. **Autonomie** : Indépendance, créativité
 
 ## Impact sur la communication
+
 - Influence le choix des mots et expressions
 - Détermine les sujets sensibles
 - Affecte l'interprétation des messages
 - Guide les comportements non-verbaux
 
 ## Points clés à retenir
+
 - Les valeurs sont essentielles dans la construction identitaire
 - Peuvent créer des conflits en cas d'incompatibilité
 - Important de les identifier pour une communication efficace

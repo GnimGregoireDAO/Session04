@@ -11,22 +11,22 @@ Visées éducatives du cours
 • Développer le sens de l’abstraction;
 • Promouvoir les valeurs d’équité en matière d’accès aux technologies informatiques
 Contribution et place du cours dans le programme
-Ce cours est le deuxième de la séquence « Développement d'applications natives » et introduit les 
+Ce cours est le deuxième de la séquence « Développement d'applications natives » et introduit les
 méthodes de développement d'applications pour appareils mobiles.
 Modalités d’encadrement et somme de travaux personnels
-L’enseignant est disponible en classe pour répondre à vos questions. En dehors des heures, vous 
-pouvez écrire à votre enseignant en utilisant la messagerie MIO dans Omnivox. 
+L’enseignant est disponible en classe pour répondre à vos questions. En dehors des heures, vous
+pouvez écrire à votre enseignant en utilisant la messagerie MIO dans Omnivox.
 Les responsabilités de l’étudiant sont les suivantes :
 
-• Lors des présentations, l’étudiant prend note des explications et des exemples du professeur 
+• Lors des présentations, l’étudiant prend note des explications et des exemples du professeur
 sur les différentes notions abordées. Il réalise les exercices d’application de ces notions.
 
 • Dans les laboratoires, l’étudiant met en pratique les concepts vus dans les présentations.
 
-• En dehors de la classe, l’étudiant termine le travail commencé en laboratoire, effectue les 
+• En dehors de la classe, l’étudiant termine le travail commencé en laboratoire, effectue les
 devoirs et révise les notions vues en classe pour le début de la séance suivante.
 
-• L’étudiant participe activement à la discussion qui accompagne la présentation de la solution 
+• L’étudiant participe activement à la discussion qui accompagne la présentation de la solution
 de chaque laboratoire.
 
 • L’étudiant effectue les lectures et recherches demandées par le professeur.
