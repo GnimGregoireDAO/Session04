@@ -3,31 +3,59 @@
 ## JavaScript avancé et TypeScript
 
 ### JavaScript avancé
+
 - **Promises et async/await**
-  - Les Promises permettent de gérer les opérations asynchrones
-  - `async/await` simplifie le code asynchrone avec une syntaxe synchrone
+  - Les Promises sont des objets représentant l'état d'une opération asynchrone (pending, fulfilled, rejected)
+  - Elles résolvent le problème du "callback hell" en chaînant les opérations
+  - `async/await` est une syntaxe plus élégante bâtie sur les Promises
+
   ```javascript
   // Promise example
   fetch('https://api.example.com/data')
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) throw new Error('Erreur réseau');
+      return response.json();
+    })
     .then(data => console.log(data))
-    .catch(error => console.error(error));
+    .catch(error => console.error('Problème avec la requête:', error))
+    .finally(() => console.log('Opération terminée'));
 
+  // Promise creation
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  
   // Async/await example
   async function fetchData() {
     try {
       const response = await fetch('https://api.example.com/data');
+      if (!response.ok) throw new Error('Erreur réseau');
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error(error);
+      console.error('Erreur:', error);
+      // Gestion appropriée de l'erreur
+      throw error; // Propager l'erreur si nécessaire
     }
   }
+  
+  // Promise combinators
+  // Promise.all: attend que toutes les promises soient résolues
+  const promises = [fetchUsers(), fetchPosts(), fetchComments()];
+  Promise.all(promises).then(([users, posts, comments]) => {
+    // Travaille avec les 3 résultats
+  });
+  
+  // Promise.race: retourne la première promise résolue
+  Promise.race([
+    fetch('/endpoint-1'),
+    fetch('/endpoint-2')
+  ]).then(firstResponse => console.log('Premier à répondre:', firstResponse));
   ```
 
 - **Destructuring**
   - Permet d'extraire des valeurs d'objets ou de tableaux
+  
   ```javascript
+
   const person = { name: 'John', age: 30 };
   const { name, age } = person;
 
@@ -37,6 +65,7 @@
 
 - **Spread/Rest operators**
   - `...` pour étendre ou regrouper des éléments
+
   ```javascript
   // Spread
   const arr1 = [1, 2, 3];
@@ -50,6 +79,8 @@
 
 - **Modules ES6**
   - Organisation du code en modules réutilisables
+  - Utilisation de `import` et `export`
+
   ```javascript
   // Export
   export const PI = 3.14;
@@ -62,6 +93,7 @@
 ### TypeScript
 
 - **Types de base**
+
   ```typescript
   let name: string = "John";
   let age: number = 30;
@@ -71,6 +103,7 @@
   ```
 
 - **Interfaces**
+
   ```typescript
   interface User {
     id: number;
@@ -85,6 +118,7 @@
   ```
 
 - **Classes**
+
   ```typescript
   class Person {
     private name: string;
@@ -100,6 +134,7 @@
   ```
 
 - **Generics**
+
   ```typescript
   function getArray<T>(items: T[]): T[] {
     return new Array().concat(items);
@@ -118,9 +153,15 @@
 ## Bibliothèques JavaScript
 
 ### React
+
+- **Introduction**
+  - Bibliothèque JavaScript pour construire des interfaces utilisateur
+  - Basée sur des composants réutilisables
 - **Composants**
+
   - Unités de base pour construire des interfaces
   - Composants fonctionnels et de classe
+
   ```jsx
   // Functional component
   function Welcome(props) {
@@ -138,6 +179,7 @@
 - **État (state) et props**
   - Props: données passées d'un composant parent à un enfant
   - State: données gérées à l'intérieur d'un composant
+
   ```jsx
   function Counter() {
     const [count, setCount] = useState(0);
@@ -155,6 +197,7 @@
   - `useState`: gérer l'état local
   - `useEffect`: gérer les effets secondaires
   - `useContext`: accéder au contexte
+
   ```jsx
   function Example() {
     const [count, setCount] = useState(0);
@@ -173,7 +216,9 @@
   ```
 
 ### jQuery
+
 - **Sélection d'éléments**
+
   ```javascript
   $('#id');            // Sélectionne par ID
   $('.class');         // Sélectionne par classe
@@ -182,6 +227,7 @@
   ```
 
 - **Manipulation du DOM**
+
   ```javascript
   $('#id').text('Nouveau texte');        // Modifier le texte
   $('.class').html('<p>Contenu HTML</p>'); // Modifier le HTML
@@ -190,6 +236,7 @@
   ```
 
 - **Gestion des événements**
+
   ```javascript
   $('#button').click(function() {
     alert('Bouton cliqué!');
@@ -201,6 +248,7 @@
   ```
 
 - **AJAX avec jQuery**
+
   ```javascript
   $.ajax({
     url: 'https://api.example.com/data',
@@ -221,7 +269,9 @@
   ```
 
 ### Vue.js
+
 - **Instance Vue et composants**
+
   ```javascript
   const app = new Vue({
     el: '#app',
@@ -238,6 +288,7 @@
   ```
 
 - **Directives**
+
   ```html
   <div v-if="seen">Maintenant vous me voyez</div>
   <div v-for="item in items" :key="item.id">{{ item.text }}</div>
@@ -246,6 +297,7 @@
   ```
 
 - **Computed properties et watchers**
+
   ```javascript
   new Vue({
     el: '#app',
@@ -268,6 +320,7 @@
   ```
 
 ### Autres bibliothèques populaires
+
 - **Lodash**: Utilitaires pour manipuler des tableaux, objets, etc.
 - **Axios**: Client HTTP pour effectuer des requêtes AJAX
 - **D3.js**: Bibliothèque pour la visualisation de données

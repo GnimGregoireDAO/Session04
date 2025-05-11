@@ -1,4 +1,4 @@
-
+v
 # Description du cours
 
 Ce cours vous permettra d'apprendre les méthodes collaboratives de développement d'applications mobiles natives exploitant des données distantes
